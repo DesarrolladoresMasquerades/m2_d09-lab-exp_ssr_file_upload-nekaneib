@@ -76,7 +76,9 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
 ////////////////////////////////////////////////////////////////////////
 
 // .get() route ==> to display the login form to users
-router.get("/login", isLoggedOut, (req, res) => res.render("auth/login"));
+router.get("/login", isLoggedOut, (req, res) =>{ res.render("auth/login")
+console.log("HOla")
+});
 
 // .post() login route ==> to process form data
 router.post("/login", isLoggedOut, (req, res, next) => {
@@ -104,8 +106,13 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .catch((error) => next(error));
 });
 
+router.route("profile/edit")
+.get((req, res)=>{
+  res.render("auth/login")
+})
+
 ////////////////////////////////////////////////////////////////////////
-///////////////////////////// LOGOUT ////////////////////////////////////
+///////////////////////////// LOGOUT ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
 router.post("/logout", isLoggedIn, (req, res) => {
