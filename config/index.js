@@ -1,3 +1,6 @@
+
+const MONGO_URI =`mongodb+srv://${process.env.MG_USERNAME}:${process.env.MG_PWD}@cluster0.xkqko.mongodb.net/LAB-09-FileUpload?retryWrites=true&w=majority`;
+
 // We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
 
@@ -54,7 +57,7 @@ module.exports = (app) => {
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/lab-express-irontumblr",
+        mongoUrl: MONGO_URI,
       }),
     })
   );
