@@ -29,6 +29,9 @@ app.use('/', (req, res, next) => {
   next()
 })
 
+const profile = require("./routes/private/profile.route")
+app.use("/user-profile", profile)
+
 // 👇 Start handling routes here
 const index = require('./routes/index');
 app.use('/', index);
@@ -38,5 +41,6 @@ app.use('/', authRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
+
 
 module.exports = app;
